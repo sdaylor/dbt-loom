@@ -26,6 +26,7 @@ def test_dbt_core_runs_loom_plugin():
     assert isinstance(output.result, list)
     assert set(output.result).issuperset(
         {
-            "revenue.orders",
+            "revenue.orders.v1",
+            "revenue.orders.v2",
         }
     ), "The child project is missing expected nodes. Check that injection still works."
