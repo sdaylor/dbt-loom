@@ -14,7 +14,7 @@ version_files = ["pyproject.toml:^version"]
 python = ">=3.9,<4.0"
 dbt-core = ">=1.6.0,<1.8.0"
 requests = "^2.31.0"
-google-cloud-storage = "^2.14.0"
+google-cloud-storage = "^2.13.0"
 boto3 = "^1.34.14"
 azure-storage-blob = "^12.19.0"
 azure-identity = "^1.15.0"
