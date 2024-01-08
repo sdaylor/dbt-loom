@@ -31,13 +31,9 @@ class AzureClient:
             blob_client = blob_service_client.get_blob_client(
                 container=self.container_name, blob=self.object_name
             )
-        except ClientAuthenticationError:
+        except Exception as e:
             raise Exception(
-                "Invalid Azure credentials. Please provide valid principal authentication or storage connection string"
-            )
-        except ServiceRequestError:
-            raise Exception(
-                "Invalid connection details. Please check your host, container, and blob names."
+                "Unable to connect to Azure. Please confirm your credentials, connection details, and network."
             )
 
         # Deserialize the body of the object.
