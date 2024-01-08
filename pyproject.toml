@@ -18,6 +18,7 @@ google-cloud-storage = "^2.14.0"
 boto3 = "^1.34.14"
 azure-storage-blob = "^12.19.0"
 azure-identity = "^1.15.0"
+types-pyyaml = "^6.0.12.12"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.0.278"
@@ -31,6 +32,10 @@ mypy = "^1.8.0"
 
 [tool.ruff]
 line-length = 88
+
+[tool.isort]
+force_grid_wrap = 0 # Resolve conflict with Black
+line_length = 88    # Comply with Ruff and Black
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
