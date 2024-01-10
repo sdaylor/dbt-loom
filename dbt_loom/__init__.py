@@ -67,7 +67,7 @@ class AzureReferenceConfig(BaseModel):
 
     container_name: str
     object_name: str
-    account_url: str
+    account_name: str
 
 
 class ManifestReference(BaseModel):
@@ -173,7 +173,7 @@ class ManifestLoader:
         azure_client = AzureClient(
             container_name=config.container_name,
             object_name=config.object_name,
-            account_url=config.account_url,
+            account_name=config.account_name,
         )
 
         return azure_client.load_manifest()

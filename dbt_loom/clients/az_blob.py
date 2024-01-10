@@ -2,7 +2,6 @@ import json
 import os
 from typing import Dict
 
-from azure.core.exceptions import ClientAuthenticationError, ServiceRequestError
 from azure.identity import DefaultAzureCredential
 from azure.storage.blob import BlobServiceClient
 
@@ -10,8 +9,10 @@ from azure.storage.blob import BlobServiceClient
 class AzureClient:
     """A client for loading manifest files from Azure storage."""
 
-    def __init__(self, container_name: str, object_name: str, account_url: str) -> None:
-        self.account_url = account_url
+    def __init__(
+        self, container_name: str, object_name: str, account_name: str
+    ) -> None:
+        self.account_name = account_name
         self.container_name = container_name
         self.object_name = object_name
 
@@ -25,8 +26,9 @@ class AzureClient:
                     connection_string
                 )
             else:
+                account_url = f"{self.account_name}.blob.core.windows.net"
                 blob_service_client = BlobServiceClient(
-                    self.account_url, credential=DefaultAzureCredential()
+                    account_url, credential=DefaultAzureCredential()
                 )
             blob_client = blob_service_client.get_blob_client(
                 container=self.container_name, blob=self.object_name
