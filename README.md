@@ -140,7 +140,7 @@ manifests:
   - name: project_name
     type: azure
     config:
-      account_url: <YOUR AZURE STORAGE ACCOUNT URL> # The blob endpoint of your Azure Storage account
+      account_name: <YOUR AZURE STORAGE ACCOUNT NAME> # The name of your Azure Storage account
       container_name: <YOUR AZURE STORAGE CONTAINER NAME> # The name of your Azure Storage container
       object_name: <YOUR OBJECT NAME> # The object name of your manifest file.
 ```
